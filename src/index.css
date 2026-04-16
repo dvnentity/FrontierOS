@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@theme {
+  --color-frontier-bg: #05070a;
+  --color-frontier-surface: #0a0d14;
+  --color-frontier-card: #111522;
+  --color-frontier-border: #1e2433;
+  --color-frontier-accent: #5e9bff;
+  --color-frontier-accent2: #a78bfa;
+  --color-frontier-green: #34d399;
+  --color-frontier-muted: #64748b;
+  --color-frontier-text: #e2e8f0;
+
+  --font-space: "Space Grotesk", sans-serif;
+  --font-inter: "Inter", sans-serif;
+
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-spin-slow: spin 8s linear infinite;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-frontier-bg);
+    color: var(--color-frontier-text);
+    font-family: var(--font-inter);
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-frontier-card/60 backdrop-blur-md border border-frontier-border/50;
+  }
+  
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-frontier-accent via-frontier-accent2 to-frontier-green;
+  }
+}
+
+.bg-grid {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), 
+                    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.glow-shadow {
+  box-shadow: 0 0 40px -10px rgba(94, 155, 255, 0.3);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #1e2433 #05070a;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #05070a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e2433;
+  border-radius: 99px;
+}
